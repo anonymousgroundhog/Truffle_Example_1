@@ -45,21 +45,17 @@
 // const { MNEMONIC, PROJECT_ID } = process.env;
 module.exports = {
   networks: {
-    development: {
+    live: {
       host: "127.0.0.1",
-      port: 7545,
-      network_id: "*" // Match any network id
+      port: 8545,
+      network_id: "1", // Only mainnet
+      gasPrice: "10000000000", // 10 gwei
+      gas: "5000000", // 0.02 eth at 4 gwei price
     },
-  contracts_directory: './src/contracts/',
-  contracts_build_directory: './src/abis/',
+  },
   compilers: {
     solc: {
-      optimizer: {
-        enabled: true,
-        runs: 200
-      },
-      evmVersion: "petersburg"
-    }
-  }
-}
-}
+      version: "^0.8.4",
+    },
+  },
+};
